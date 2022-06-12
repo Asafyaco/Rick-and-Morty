@@ -1,0 +1,21 @@
+.rnm-select-inputs {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.3em 1em;
+}
+
+.MuiOutlinedInput-root {
+  margin: 0 0.3em;
+}
+
+.clear-button {
+  width: 14em;
+  margin: 0 0.3em !important;
+}
+
+.rnm-data-grid {
+  height: 650px;
+  width: "100%";
+  margin: 1.3em;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
