@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import {
   Box,
@@ -10,13 +10,11 @@ import {
   Select,
   TextField
 } from "@mui/material";
-import { useState } from "react";
 import { GENDER, STATUS } from "./consts";
 import "./DataGrid.css";
 
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import Search from './../../components/Search/Search';
 
 const columns = [
   {
@@ -42,8 +40,8 @@ const DataView = () => {
   const [filteredResults, setFilteredResults] = useState([]);
 
   const [search, setSearch]= useState()
-  const [filterGender, setFilterGender] = useState(null);
-  const [filterStatus, setFilterStatus] = useState(null);
+  const [filterGender, setFilterGender] = useState("");
+  const [filterStatus, setFilterStatus] = useState("");
 
   const handleChangeGender = (e) => {
     setFilterGender(e.target.value);
@@ -69,13 +67,13 @@ const DataView = () => {
     var url = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search ? search : ''}`;
     url += gender ? `&gender=${gender}` : '';
     url += status ? `&status=${status}` : '';
-    console.log(url);
+    // console.log(url);
     fetch(url)
       .then((resultData) => {
         return resultData.json()
       })
       .then(data => {
-        console.log(data?.results);
+        // console.log(data?.results);
         data?.results.map((character) => {
           let obj = {};
           obj.id = character.id;    
@@ -86,7 +84,7 @@ const DataView = () => {
           obj.col5 = character.species;
           obj.col6 = character.gender;
           temp.push(obj);
-          console.log(temp);
+          // console.log(temp);
         });
         setFilteredResults(temp);
         setCountPages(data.info.pages)
@@ -117,7 +115,7 @@ const DataView = () => {
         });
       })
       .then(() => {
-        console.log(arr);
+        // console.log(arr);
         setFilteredResults(arr)
         setCharacters(arr);
       });
@@ -173,7 +171,6 @@ const DataView = () => {
         </FormControl>
 
         <Button className="clear-button" variant="contained" onClick={()=>{
-          console.log(123)
           filterCharacters(1, null, null, " ");
           setSearch(" ");
           setFilterGender(null);
@@ -193,6 +190,7 @@ const DataView = () => {
               pagination
               rows={filteredResults}
               columns={columns}
+              rowsPerPageOptions={[pageSize]}
             />
           ) : <div className="rnm-data-grid-no-results">
                <img src="https://www.ahb.com.mv/assets/img/empty-placeholder.png" alt="no-results" />
