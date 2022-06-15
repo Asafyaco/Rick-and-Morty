@@ -1,16 +1,20 @@
+.rnm-search {
+  display: flex;
+}
+
 .rnm-select-inputs {
   display: flex;
   justify-content: space-between;
-  margin: 0.3em 1em;
+  margin: 0.1em 1em;
 }
 
-.MuiOutlinedInput-root {
-  margin: 0 0.3em;
+.MuiFormControl-root{
+  margin: 0.3em 0.4em !important;
 }
 
 .clear-button {
   width: 23%;
-  margin: 0 0.3em !important;
+  margin: 0 0.4em !important;
 }
 
 .rnm-data-grid {
@@ -40,8 +44,10 @@
   padding: 1em;
 }
 
-@media only screen and (max-width: 940px) and (max-height: 940px) {
+@media only screen and (max-width: 1180px) and (max-height: 1180px) {
   .clear-button{
     width: 40%;
+    text-align: left;
+    font-size: 75% !important;
   }
 }

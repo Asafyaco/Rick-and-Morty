@@ -134,7 +134,7 @@ const DataView = () => {
         />
     </div>
       <div className="rnm-select-inputs">
-        <FormControl fullWidth>
+        <FormControl fullWidth  variant="standard">
           <InputLabel id="demo-simple-select-label">Gender</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -152,7 +152,7 @@ const DataView = () => {
           </Select>
         </FormControl>
 
-        <FormControl fullWidth>
+        <FormControl fullWidth  variant="standard">
           <InputLabel id="demo-simple-select-label">Status</InputLabel>
           <Select
             labelId="demo-simple-select-label"
