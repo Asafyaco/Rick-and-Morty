@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
 import { GENDER, STATUS } from "./consts";
-import "./DataGrid.css";
+import "./DataGrid.scss";
 
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
