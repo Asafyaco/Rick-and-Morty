@@ -7,9 +7,9 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  TextField
+  TextField,
 } from "@mui/material";
-import ClearIcon from '@mui/icons-material/Clear';
+import ClearIcon from "@mui/icons-material/Clear";
 import { GENDER, STATUS } from "./consts";
 import "./DataGrid.css";
 
@@ -39,19 +39,20 @@ const DataView = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [filteredResults, setFilteredResults] = useState([]);
 
-  const [search, setSearch]= useState()
+  const [search, setSearch] = useState();
   const [filterGender, setFilterGender] = useState("");
   const [filterStatus, setFilterStatus] = useState("");
 
   const handleChangeGender = (e) => {
     setFilterGender(e.target.value);
     filterCharacters(pageNumber, e.target.value, filterStatus, search);
-    
   };
+
   const handleChangeStatus = (e) => {
     setFilterStatus(e.target.value);
     filterCharacters(pageNumber, filterGender, e.target.value, search);
   };
+
   const handleSearchCharacter = (e) => {
     setSearch(e.target.value);
     filterCharacters(pageNumber, filterGender, filterStatus, e.target.value);
@@ -70,13 +71,13 @@ const DataView = () => {
     // console.log(url);
     fetch(url)
       .then((resultData) => {
-        return resultData.json()
+        return resultData.json();
       })
-      .then(data => {
+      .then((data) => {
         // console.log(data?.results);
         data?.results.map((character) => {
           let obj = {};
-          obj.id = character.id;    
+          obj.id = character.id;
           obj.col1 = character.image;
           obj.col2 = character.name;
           obj.col3 = character.origin?.name;
@@ -87,24 +88,24 @@ const DataView = () => {
           // console.log(temp);
         });
         setFilteredResults(temp);
-        setCountPages(data.info.pages)
+        setCountPages(data.info.pages);
       })
       .catch(() => {
         setCountPages(1);
         setFilteredResults([]);
-      })
-  }
-  
+      });
+  };
+
   useEffect(() => {
     let arr = [];
-    let initURL = `https://rickandmortyapi.com/api/character?page=${pageNumber}`
+    let initURL = `https://rickandmortyapi.com/api/character?page=${pageNumber}`;
     fetch(initURL)
       .then((res) => res.json())
       .then((json) => {
         json && setCountPages(json.info.pages);
         json.results.map((character) => {
           let obj = {};
-          obj.id = character.id;    
+          obj.id = character.id;
           obj.col1 = character.image;
           obj.col2 = character.name;
           obj.col3 = character.origin?.name;
@@ -116,25 +117,25 @@ const DataView = () => {
       })
       .then(() => {
         // console.log(arr);
-        setFilteredResults(arr)
+        setFilteredResults(arr);
         setCharacters(arr);
       });
   }, []);
 
   return (
     <div className="rnm-page">
-          <div className="rnm-search">
-      <TextField fullWidth
-        className="textField"
-        id="outlined-basic"
-        label="Search"
-        variant="outlined"
-        onChange={handleSearchCharacter}
-        value={search}
+      <div className="rnm-search">
+        <TextField fullWidth
+          className="textField"
+          id="outlined-basic"
+          label="Search"
+          variant="outlined"
+          onChange={handleSearchCharacter}
+          value={search}
         />
-    </div>
+      </div>
       <div className="rnm-select-inputs">
-        <FormControl fullWidth  variant="standard">
+        <FormControl fullWidth variant="standard">
           <InputLabel id="demo-simple-select-label">Gender</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -152,7 +153,7 @@ const DataView = () => {
           </Select>
         </FormControl>
 
-        <FormControl fullWidth  variant="standard">
+        <FormControl fullWidth variant="standard">
           <InputLabel id="demo-simple-select-label">Status</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -162,7 +163,7 @@ const DataView = () => {
           >
             {STATUS.map((e, index) => {
               return (
-                <MenuItem value={e} key={index} >
+                <MenuItem value={e} key={index}>
                   {e}
                 </MenuItem>
               );
@@ -170,13 +171,18 @@ const DataView = () => {
           </Select>
         </FormControl>
 
-        <Button className="clear-button" variant="contained" endIcon={<ClearIcon/>} onClick={()=>{
-          filterCharacters(1, null, null, " ");
-          setSearch(" ");
-          setFilterGender(null);
-          setFilterStatus(null);
-          setPageNumber(1);
-        }}>
+        <Button
+          className="clear-button"
+          variant="contained"
+          endIcon={<ClearIcon />}
+          onClick={() => {
+            filterCharacters(1, null, null, " ");
+            setSearch(" ");
+            setFilterGender(null);
+            setFilterStatus(null);
+            setPageNumber(1);
+          }}
+        >
           clear all
         </Button>
       </div>
@@ -192,10 +198,12 @@ const DataView = () => {
               columns={columns}
               rowsPerPageOptions={[pageSize]}
             />
-          ) : <div className="rnm-data-grid-no-results">
-               <img src="https://www.ahb.com.mv/assets/img/empty-placeholder.png" alt="no-results" />
-                No results
-            </div>}
+          ) : (
+            <div className="rnm-data-grid-no-results">
+              <img src="https://www.ahb.com.mv/assets/img/empty-placeholder.png" alt="no-results" />
+              No results
+            </div>
+          )}
           <div className="pagination">
             <Stack spacing={2}>
               <Pagination

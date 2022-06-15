@@ -8,7 +8,7 @@
   margin: 0.1em 1em;
 }
 
-.MuiFormControl-root{
+.MuiFormControl-root {
   margin: 0.3em 0.4em !important;
 }
 
@@ -45,7 +45,7 @@
 }
 
 @media only screen and (max-width: 1180px) and (max-height: 1180px) {
-  .clear-button{
+  .clear-button {
     width: 40%;
     text-align: left;
     font-size: 75% !important;
