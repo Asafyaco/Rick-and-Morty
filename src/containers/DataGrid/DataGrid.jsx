@@ -6,10 +6,10 @@ import {
   FormControl,
   InputLabel,
   MenuItem,
-  Paper,
   Select,
   TextField
 } from "@mui/material";
+import ClearIcon from '@mui/icons-material/Clear';
 import { GENDER, STATUS } from "./consts";
 import "./DataGrid.css";
 
@@ -131,7 +131,7 @@ const DataView = () => {
         variant="outlined"
         onChange={handleSearchCharacter}
         value={search}
-      />
+        />
     </div>
       <div className="rnm-select-inputs">
         <FormControl fullWidth>
@@ -170,7 +170,7 @@ const DataView = () => {
           </Select>
         </FormControl>
 
-        <Button className="clear-button" variant="contained" onClick={()=>{
+        <Button className="clear-button" variant="contained" endIcon={<ClearIcon/>} onClick={()=>{
           filterCharacters(1, null, null, " ");
           setSearch(" ");
           setFilterGender(null);
