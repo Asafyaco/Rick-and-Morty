@@ -126,7 +126,7 @@ const DataView = () => {
   return (
     <div className="rnm-page">
           <div className="rnm-search">
-      <TextField
+      <TextField fullWidth
         className="textField"
         id="outlined-basic"
         label="Search"
@@ -186,7 +186,7 @@ const DataView = () => {
 
       <Box sx={{ height: 200, width: 1, mb: 2 }}>
         <div className="rnm-data-grid">
-          {filteredResults?.length !== 0 && (
+          {filteredResults?.length !== 0 ? (
             <DataGrid
               pageSize={pageSize}
               onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
@@ -194,7 +194,10 @@ const DataView = () => {
               rows={filteredResults}
               columns={columns}
             />
-          )}
+          ) : <div className="rnm-data-grid-no-results">
+               <img src="https://www.ahb.com.mv/assets/img/empty-placeholder.png" alt="no-results" />
+                No results
+            </div>}
           <div className="pagination">
             <Stack spacing={2}>
               <Pagination
