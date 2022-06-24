@@ -1,3 +1,65 @@
 .App {
   text-align: center;
 }
+
+// .rnm-page {
+//   .rnm-search {
+//     padding: 1em;
+//   }
+
+//   .rnm-search {
+//     display: flex;
+//   }
+
+//   .rnm-select-inputs {
+//     display: flex;
+//     justify-content: space-between;
+//     margin: 0.1em 1em;
+//   }
+
+//   .MuiFormControl-root {
+//     margin: 0.3em 0.4em !important;
+//   }
+
+//   .clear-button {
+//     width: 23%;
+//     margin: 0 0.4em !important;
+//   }
+
+//   .rnm-data-grid {
+//     height: 650px;
+//     width: "100%";
+//     margin: 1.3em;
+//     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+
+//     .rnm-data-grid-no-results {
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       height: 65%;
+//       text-transform: uppercase;
+//       font-weight: bold;
+//       font-size: larger;
+//     }
+
+//     .MuiDataGrid-footerContainer {
+//       display: none;
+//     }
+
+//     .pagination {
+//       padding: 5px 0 15px 0;
+//       display: flex;
+//       justify-content: center;
+//     }
+//   }
+// }
+
+@media only screen and (max-width: 1180px) and (max-height: 1180px) {
+  .rnm-page {
+    .clear-button {
+      width: 40%;
+      text-align: left;
+      font-size: 75% !important;
+    }
+  }
+}
