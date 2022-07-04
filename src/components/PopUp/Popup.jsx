@@ -1,39 +1,39 @@
 import "./Popup.scss";
 import Modal from "@mui/material/Modal";
 import { Box } from "@mui/system";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Popup = ({ open, handleClose, popupContent }) => {
-  const [currentEpisodes, setCurrentEpisodes] = useState([]);
+  const [firstEpisode, setFirstEpisode] = useState({});
+  const [lastEpisode, setLastEpisode] = useState({});
 
-  // const style = {
-  //   position: "absolute",
-  //   top: "50%",
-  //   left: "50%",
-  //   transform: "translate(-50%, -50%)",
-  //   width: "50%",
-  //   bgcolor: "#fff",
-  //   border: "2px solid #000",
-  //   boxShadow: 24,
-  //   p: 4,
-  //   display: "flex",
-  //   justifyContent: "space-around",
-  // };
+  useEffect(() => {
+    if (open && popupContent?.episodes?.length > 0) {
+      // console.log("popup content = ", popupContent);
+      fetch(popupContent.episodes[0])
+        .then((resultData) => {
+          return resultData.json();
+        })
+        .then((data) => {
+          setFirstEpisode(data);
+          if (popupContent?.episodes?.length === 1) {
+            setLastEpisode(data);
+          }
+          return data;
+        });
 
-  const getEpisodes = (url) => {
-    fetch(url)
-      .then((resultData) => {
-        resultData.json();
-      })
-      .then((data) => {
-        return data;
-      });
-  };
-
-  if (popupContent){
-    let e = popupContent.episodes;
-    console.log(e);  
-  }
+      if (popupContent?.episodes?.length !== 1) {
+        fetch(popupContent.episodes[popupContent?.episodes?.length - 1])
+          .then((resultData) => {
+            return resultData.json();
+          })
+          .then((data) => {
+            setLastEpisode(data);
+            return data;
+          });
+      }
+    }
+  }, [open]);
 
   return (
     <div className="popup-area">
@@ -50,9 +50,12 @@ const Popup = ({ open, handleClose, popupContent }) => {
             src={popupContent.col1}
             alt="character-image-popup"
           />
-          
-          {/* <h3>First episode - {getEpisodes(popupContent?.episodes[0])}</h3> */}
-          {/* <h3>Last episode - {getEpisodes(popupContent?.episodes[popupContent?.episodes?.length - 1])}</h3> */}
+
+          <div>
+            <h1>{popupContent?.col2}</h1>
+            <h3>First episode - {firstEpisode?.episode}</h3>
+            <h3>Last episode - {lastEpisode?.episode}</h3>
+          </div>
         </Box>
       </Modal>
     </div>

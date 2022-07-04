@@ -28,7 +28,6 @@ const Main = () => {
       let url = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search ? search : ''}`;
       url += gender ? `&gender=${gender}` : '';
       url += status ? `&status=${status}` : '';
-      // console.log(url);
       fetch(url)
         .then((resultData) => {
           return resultData.json();
@@ -45,7 +44,7 @@ const Main = () => {
                 col4 : character.status,
                 col5 : character.species,
                 col6 : character.gender,
-                episodes: character.episodes
+                episodes: character.episode
               };
             });
             setFilteredResults(temp);
