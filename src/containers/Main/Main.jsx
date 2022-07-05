@@ -22,9 +22,8 @@ const Main = () => {
     // popup
     const [open, setOpen] = useState(false);
     const [popupContent, setPopupContent] = useState(true);
+    const initialRun = useRef(true);
     
-    const [filterTriggered, setFilterTriggered] = useState(false);
-
     const [filterTriggered, setFilterTriggered] = useState(false);
 
     const handleOpen = (row) => {setOpen(true); setPopupContent(row)};
@@ -58,7 +57,17 @@ const Main = () => {
     };
   
     useEffect(() => {
+      if (initialRun.current) {
+          console.log("Initial run");
+          initialRun.current = false;
+      } else {
+          console.log("Not initial run");
+      }
+      console.log("Happen useEffect");
+
+      let timeout = setTimeout(() => {
       console.log("Starting fetch... ");
+
       let arr = [];
       let url = "";
       if(filterTriggered == true) {
@@ -99,7 +108,14 @@ const Main = () => {
           setData([]);
           setShowPagination(false);
         });
-  }, [doEffect]);
+      }, 800);
+  
+      // Will happen on finishing effect
+      return () => {
+        console.log("Effect finished");
+        clearTimeout(timeout);
+      };
+    }, [doEffect]);
 
   return (
     <div className="rnm-page">
