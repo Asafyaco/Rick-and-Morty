@@ -1,8 +1,15 @@
 import { TextField } from "@mui/material";
 import "./Search.scss";
 
-const Search = ({search, pageNumber, filterGender, filterStatus, setPageNumber, setSearch, filterCharacters}) => {
-
+const Search = ({
+  search,
+  pageNumber,
+  filterGender,
+  filterStatus,
+  setPageNumber,
+  setSearch,
+  filterCharacters,
+}) => {
   const handleSearchCharacter = (e) => {
     setPageNumber(1);
     console.log(pageNumber);

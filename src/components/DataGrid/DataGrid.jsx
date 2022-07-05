@@ -5,7 +5,7 @@ import React from "react";
 import Stack from "@mui/material/Stack";
 import Pagination from "@mui/material/Pagination";
 import "./DataGrid.scss";
-import Popup from './../PopUp/Popup';
+import Popup from "./../PopUp/Popup";
 
 const DataGridComponent = ({
   filteredResults,
@@ -22,7 +22,7 @@ const DataGridComponent = ({
   open,
   handleOpen,
   popupContent,
-  handleClose
+  handleClose,
 }) => {
   const handlePageChange = (event, value) => {
     setPageNumber(value);
@@ -32,7 +32,7 @@ const DataGridComponent = ({
   const handleOnClick = (row) => {
     handleOpen(row);
     console.log(row);
-  }
+  };
 
   const columns = [
     {
@@ -56,12 +56,13 @@ const DataGridComponent = ({
 
   return (
     <div>
-      {/* <button onClick={() =>{
-        handleOnClick({name:"hi"})
-      }}>
-      </button> */}
+      <Popup
+        open={open}
+        handleOpen={handleOpen}
+        popupContent={popupContent}
+        handleClose={handleClose}
+      />
 
-      <Popup open={open} handleOpen={handleOpen} popupContent={popupContent} handleClose={handleClose}/>
       <Box sx={{ height: 200, width: 1, mb: 2 }}>
         <div className="rnm-data-grid">
           {filteredResults?.length > 0 ? (
@@ -99,6 +100,7 @@ const DataGridComponent = ({
             </Stack>
           )}
         </div>
+        
       </Box>
     </div>
   );
