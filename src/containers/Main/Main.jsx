@@ -22,6 +22,8 @@ const Main = () => {
     // popup
     const [open, setOpen] = useState(false);
     const [popupContent, setPopupContent] = useState(true);
+    
+    const [filterTriggered, setFilterTriggered] = useState(false);
 
     const [filterTriggered, setFilterTriggered] = useState(false);
 
