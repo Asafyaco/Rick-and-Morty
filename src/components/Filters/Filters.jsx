@@ -3,7 +3,7 @@ import { GENDER, STATUS } from '../../consts';
 import ClearIcon from '@mui/icons-material/Clear';
 import "./Filters.scss";
 
-const Filters = ({search, setSearch, filterGender, filterStatus, setPageNumber, filterCharacters, setFilterGender, setFilterStatus}) => {
+const Filters = ({search, setSearch, filterGender, filterStatus, setPageNumber, filterCharacters, setFilterGender, setFilterStatus, clear}) => {
   const handleChangeGender = (e) => {
     setPageNumber(1);
     setFilterGender(e.target.value);
@@ -59,11 +59,13 @@ const Filters = ({search, setSearch, filterGender, filterStatus, setPageNumber, 
       variant="contained"
       endIcon={<ClearIcon />}
       onClick={() => {
-        filterCharacters(1, null, null, "");
-        setSearch("");
-        setFilterGender(null);
-        setFilterStatus(null);
-        setPageNumber(1);
+        // filterCharacters(1, null, null, "");
+        // setSearch("");
+        // setFilterGender(null);
+        // setFilterStatus(null);
+        // setPageNumber(1);
+
+        clear();
       }}
     >
       clear all
