@@ -1,12 +1,12 @@
 import "./App.scss";
 import Header from "./components/Header/Header";
-import DataView from "./containers/DataGrid/DataGrid";
+import Main from "./containers/Main/Main";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <DataView />
+      <Main />
     </div>
   );
 }

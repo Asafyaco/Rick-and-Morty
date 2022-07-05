@@ -1,3 +1,13 @@
 .App {
   text-align: center;
 }
+
+@media only screen and (max-width: 1180px) and (max-height: 1180px) {
+  .rnm-page {
+    .clear-button {
+      width: 40%;
+      text-align: left;
+      font-size: 75% !important;
+    }
+  }
+}

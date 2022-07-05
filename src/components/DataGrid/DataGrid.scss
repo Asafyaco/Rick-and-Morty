@@ -1,0 +1,31 @@
+.rnm-data-grid {
+  height: 650px;
+  width: "100%";
+  margin: 1.3em;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+
+  .rnm-data-grid-no-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65%;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: larger;
+  }
+
+  // DataGrid column icon
+  .MuiSvgIcon-root {
+    display: none;
+  }
+
+  .MuiDataGrid-footerContainer {
+    display: none;
+  }
+}
+
+.pagination {
+  padding: 5px 0 15px 0;
+  display: flex;
+  justify-content: center;
+}
