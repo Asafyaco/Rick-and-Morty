@@ -1,6 +1,11 @@
 import { TextField } from "@mui/material";
 import "./Search.scss";
 
+import styled from "styled-components";
+export const RNMSearch = styled.div`
+  padding: 1em
+`;
+
 const Search = ({
   search,
   pageNumber,
@@ -19,7 +24,7 @@ const Search = ({
 
   return (
     <>
-      <div className="rnm-search">
+      <RNMSearch className="rnm-search">
         <TextField
           fullWidth
           className="textField"
@@ -28,7 +33,7 @@ const Search = ({
           onChange={handleSearchCharacter}
           value={search}
         />
-      </div>
+      </RNMSearch>
     </>
   );
 };
