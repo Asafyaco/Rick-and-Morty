@@ -3,7 +3,8 @@ import "./Search.scss";
 
 import styled from "styled-components";
 export const RNMSearch = styled.div`
-  padding: 1em
+  padding: 1em;
+  display: flex;
 `;
 
 const Search = ({
