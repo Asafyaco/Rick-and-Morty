@@ -33,49 +33,51 @@ const Filters = ({
   };
 
   return (
-    <div className="rnm-select-inputs">
-      <FormControl fullWidth variant="standard">
-        <InputLabel>Gender</InputLabel>
-        <Select onChange={handleChangeGender} value={filterGender}>
-          {GENDER.map((e, index) => {
-            return (
-              <MenuItem value={e} key={index}>
-                {e}
-              </MenuItem>
-            );
-          })}
-        </Select>
-      </FormControl>
+    <div className="rnm-filters">
+      <div className="rnm-select-inputs">
+        <FormControl fullWidth variant="standard">
+          <InputLabel>Gender</InputLabel>
+          <Select onChange={handleChangeGender} value={filterGender}>
+            {GENDER.map((e, index) => {
+              return (
+                <MenuItem value={e} key={index}>
+                  {e}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
 
-      <FormControl fullWidth variant="standard">
-        <InputLabel>Status</InputLabel>
-        <Select onChange={handleChangeStatus} value={filterStatus}>
-          {STATUS.map((e, index) => {
-            return (
-              <MenuItem value={e} key={index}>
-                {e}
-              </MenuItem>
-            );
-          })}
-        </Select>
-      </FormControl>
+        <FormControl fullWidth variant="standard">
+          <InputLabel>Status</InputLabel>
+          <Select onChange={handleChangeStatus} value={filterStatus}>
+            {STATUS.map((e, index) => {
+              return (
+                <MenuItem value={e} key={index}>
+                  {e}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
 
-      <Button
-        className="clear-button"
-        variant="contained"
-        endIcon={<ClearIcon />}
-        onClick={() => {
-          // filterCharacters(1, null, null, "");
-          // setSearch("");
-          // setFilterGender(null);
-          // setFilterStatus(null);
-          // setPageNumber(1);
+        <Button
+          className="clear-button"
+          variant="contained"
+          endIcon={<ClearIcon />}
+          onClick={() => {
+            // filterCharacters(1, null, null, "");
+            // setSearch("");
+            // setFilterGender(null);
+            // setFilterStatus(null);
+            // setPageNumber(1);
 
-          clear();
-        }}
-      >
-        clear all
-      </Button>
+            clear();
+          }}
+        >
+          clear all
+        </Button>
+      </div>
     </div>
   );
 };
