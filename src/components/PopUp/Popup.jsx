@@ -51,11 +51,18 @@ const Popup = ({ open, handleClose, popupContent }) => {
             alt="character-image-popup"
           />
 
-          <div>
-            <h1>{popupContent?.col2}</h1>
+          <div className="character-details">
+            <h1 className="character-name">{popupContent?.col2}</h1>
             <h3>First episode - {firstEpisode?.episode}</h3>
+            {firstEpisode?.air_date != lastEpisode?.air_date && <h3> {firstEpisode?.air_date}</h3> }
+            <hr />
             <h3>Last episode - {lastEpisode?.episode}</h3>
+            {lastEpisode?.air_date != firstEpisode?.air_date && <h3> {lastEpisode?.air_date}</h3> }
+            <hr />
+            {firstEpisode?.air_date == lastEpisode?.air_date && <h3>{firstEpisode.air_date}</h3>}
+            <h3>Episodes total - {popupContent.episodes?.length}</h3>
           </div>
+          
         </Box>
       </Modal>
     </div>
