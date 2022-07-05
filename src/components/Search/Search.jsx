@@ -12,7 +12,7 @@ const Search = ({
 }) => {
   const handleSearchCharacter = (e) => {
     setPageNumber(1);
-    console.log(pageNumber);
+    // console.log(pageNumber);
     setSearch(e.target.value);
     filterCharacters(1, filterGender, filterStatus, e.target.value);
   };

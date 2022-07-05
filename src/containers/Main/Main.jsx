@@ -68,10 +68,10 @@ const Main = () => {
 
     if (initialRun.current) initialRun.current = false;
 
-    console.log("Happen useEffect");
+    // console.log("Happen useEffect");
 
     let timeout = setTimeout(() => {
-      console.log("Starting fetch... ");
+      // console.log("Starting fetch... ");
 
       let arr = [];
       let url = "";
@@ -117,7 +117,7 @@ const Main = () => {
 
     // Will happen on finishing effect
     return () => {
-      console.log("Effect finished");
+      // console.log("Effect finished");
       clearTimeout(timeout);
     };
   }, [doEffect]);

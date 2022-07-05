@@ -31,7 +31,6 @@ const DataGridComponent = ({
 
   const handleOnClick = (row) => {
     handleOpen(row);
-    console.log(row);
   };
 
   const columns = [
