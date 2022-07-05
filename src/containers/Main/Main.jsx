@@ -25,9 +25,28 @@ const Main = () => {
     
     const [filterTriggered, setFilterTriggered] = useState(false);
 
+    const [filterTriggered, setFilterTriggered] = useState(false);
+
     const handleOpen = (row) => {setOpen(true); setPopupContent(row)};
     
     const handleClose = () => setOpen(false);
+
+
+    // function clear all :
+    // 1- filterTriggered = false 
+    // 2- doEffect
+    // 3- Reset all fields
+
+    const clear = () => {
+      if (filterTriggered == true) {
+        setFilterTriggered(false);
+        setDoEffect(!doEffect);
+        setSearch("");
+        setFilterGender(null);
+        setFilterStatus(null);
+        setPageNumber(1);
+      }
+    }
 
     const filterCharacters = (pageNumber, gender, status, search) => {
       setSearch(search);
@@ -84,7 +103,7 @@ const Main = () => {
 
   return (
     <div className="rnm-page">
-      <SearchAndFilters search={search} pageNumber={pageNumber} filterGender={filterGender} filterStatus={filterStatus} setPageNumber={setPageNumber} setSearch={setSearch} filterCharacters={filterCharacters} setFilterGender={setFilterGender} setFilterStatus={setFilterStatus}/>
+      <SearchAndFilters search={search} pageNumber={pageNumber} filterGender={filterGender} filterStatus={filterStatus} setPageNumber={setPageNumber} setSearch={setSearch} filterCharacters={filterCharacters} setFilterGender={setFilterGender} setFilterStatus={setFilterStatus} clear={clear}/>
           <DataGridComponent filteredResults={data} pageSize={pageSize} setPageSize={setPageSize} setPageNumber={setPageNumber} filterCharacters={filterCharacters} filterGender={filterGender} filterStatus={filterStatus} search={search} countPages={countPages} pageNumber={pageNumber} showPagination={showPagination} open={open} handleOpen={handleOpen} popupContent={popupContent} handleClose={handleClose}/>
     </div>
   );
