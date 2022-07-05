@@ -57,12 +57,15 @@ const Main = () => {
     };
   
     useEffect(() => {
-      if (initialRun.current) {
-          console.log("Initial run");
-          initialRun.current = false;
-      } else {
-          console.log("Not initial run");
-      }
+      // if (initialRun.current) {
+      //     console.log("Initial run");
+      //     initialRun.current = false;
+      // } else {
+      //     console.log("Not initial run");
+      // }
+
+      if (initialRun.current) initialRun.current = false;
+
       console.log("Happen useEffect");
 
       let timeout = setTimeout(() => {
