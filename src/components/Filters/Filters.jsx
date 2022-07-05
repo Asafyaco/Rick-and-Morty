@@ -19,10 +19,8 @@ const Filters = ({search, setSearch, filterGender, filterStatus, setPageNumber, 
   return (
     <div className="rnm-select-inputs">
     <FormControl fullWidth variant="standard">
-      <InputLabel id="demo-simple-select-label">Gender</InputLabel>
+      <InputLabel>Gender</InputLabel>
       <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
         onChange={handleChangeGender}
         value={filterGender}
       >
@@ -37,10 +35,8 @@ const Filters = ({search, setSearch, filterGender, filterStatus, setPageNumber, 
     </FormControl>
 
     <FormControl fullWidth variant="standard">
-      <InputLabel id="demo-simple-select-label">Status</InputLabel>
+      <InputLabel>Status</InputLabel>
       <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
         onChange={handleChangeStatus}
         value={filterStatus}
       >

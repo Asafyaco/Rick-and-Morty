@@ -16,7 +16,6 @@ const Search = ({search, pageNumber, filterGender, filterStatus, setPageNumber, 
         <TextField
           fullWidth
           className="textField"
-          id="outlined-basic"
           label="Search"
           variant="outlined"
           onChange={handleSearchCharacter}
