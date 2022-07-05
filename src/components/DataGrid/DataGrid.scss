@@ -14,10 +14,14 @@
     font-size: larger;
   }
 
-  .MuiDataGrid-footerContainer {
+  // DataGrid column icon
+  .MuiSvgIcon-root {
     display: none;
   }
 
+  .MuiDataGrid-footerContainer {
+    display: none;
+  }
 }
 
 .pagination {
